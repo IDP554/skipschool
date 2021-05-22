@@ -23,7 +23,7 @@
 	[
 		{
 			"matches": ["https://hnwledu.ls365.net/*"],
-			"js": ["js/jquery.js", "js/timer.js", "js/content-script.js"],
+			"js": ["js/jquery.js", "js/init.js", "js/content-script.js"],
 			"css": ["css/custom.css"],
 			"run_at": "document_start"
 		}
