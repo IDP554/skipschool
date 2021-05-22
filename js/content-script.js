@@ -46,6 +46,12 @@ ready(function(){
 		self.location.href=skip.url
 	}
 
+	// 赋值下一节课程对象
+	var nextobj;
+	if(infos.length > 1) {
+		nextobj = infos[1]
+	}
+
 	// 等待视频加载完毕
 	let intervalID = setInterval(() => {
 		if($("video")[0].readyState==4) {
@@ -66,6 +72,7 @@ ready(function(){
 
 		// 默认静音处理(谷歌66版本后想要视频自动播放需静音)
 		$(video).prop('muted', true);
+		$($("video")[1]).prop('muted', true); // 补充静音
 
 		// 判断课程ID是否对应
 		if(/rmd/.exec(selfurl) !== null) {
@@ -101,12 +108,16 @@ ready(function(){
 				let stop = confirm("视频被检测到已暂停！是否恢复播放！");
 				if(!stop) {
 					clearInterval(handle);
+					alert("已关闭自动刷课，再次开启自动刷课需刷新页面。");
 				}else{
 					$(video).trigger("play")
 				}
 			}else if($("div#reader_msgbg").css("display")=="block"){
+				// 此课程刷完，自动下一节
 				clearInterval(handle);
-				window.location.reload()
+				if(null !== nextobj.url) {
+					self.location.href=nextobj.url
+				}
 			}else if(video.readyState==4) {
 				if(video.playbackRate < 10){
 					console.log("视频已加速至10倍速！");

@@ -2,29 +2,24 @@
 	"manifest_version": 2,
 	"name": "自动刷课",
 	"version": "0.0.1",
-	"description": "李大炮编写的自动刷课插件",
+	"description": "由李大炮编写的自动刷课插件",
 	"icons":
 	{
 		"16": "img/icon.png",
 		"48": "img/icon.png",
 		"128": "img/icon.png"
 	},
-	"background":
-	{
-		"page": "background.html"
-	},
-	"page_action":
+	"browser_action":
 	{
 		"default_icon": "img/icon.png",
-		"default_title": "我是pageAction",
-		"default_popup": "popup.html"
+		"default_title": "李大炮祝您今天愉快^v^",
+		"default_popup": "home.html"
 	},
 	"content_scripts": 
 	[
 		{
 			"matches": ["https://hnwledu.ls365.net/*"],
 			"js": ["js/jquery.js", "js/init.js", "js/content-script.js"],
-			"css": ["css/custom.css"],
 			"run_at": "document_start"
 		}
 	],
@@ -37,19 +32,12 @@
 		"webRequestBlocking",
 		"storage"
 	],
-	"web_accessible_resources": ["js/inject.js"],
 	"homepage_url": "https://www.baidu.com",
-	"chrome_url_overrides":
-	{
-		"newtab": "newtab.html"
-	},
 	"options_page": "options.html",
 	"options_ui":
 	{
 		"page": "options.html",
 		"chrome_style": true
 	},
-	"omnibox": { "keyword" : "skipschool" },
-	"default_locales": "zh_CN",
-	"devtools_page": "devtools.html"
+	"omnibox": { "keyword" : "湖南文理" }
 }
