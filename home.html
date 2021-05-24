@@ -5,34 +5,36 @@
 		<title>插件详情页</title>
 		<link rel="stylesheet" href="css/home.css" />
 	</head>
-	<body>
+	<!-- 禁止拖拽 -->
+	<body ondragstart="return false">
 		<!-- 状态栏 -->
-		<div id="status">
+		<div id="status" class="noselect">
 			<ul>
 				<li><img src="img/ios-signal.svg" width="14px" /></li>
 				<li>李大炮工作室</li>
 				<li>4G</li>
-				<li>20:21</li>
+				<li>00:00</li>
 				<li><img src="img/lock_phone_secure-256.png" width="13px" /></li>
 				<li><img src="img/ios-alarm.svg" width="13px" /></li>
-				<li>54%</li>
+				<li>100%</li>
 				<li><img src="img/ios-battery-full.svg" width="22px" /></li>
 				<li><img src="img/ios-bolt.svg" width="15px" /></li>
-			</ul>	
+			</ul>
 		</div>
 		<div id="searchbox">
 			<ul>
-				<li><img src="img/ios-arrow-left.svg" width="22px" /></li>
-				<li><img src="img/烟花.svg" width="20px" /></li>
+				<li class="noselect"><img src="img/ios-arrow-left.svg" width="22px" /></li>
+				<li class="noselect"><img src="img/烟花.svg" width="20px" /></li>
 				<li><input type="text" placeholder="MortarStudio" value="MortarStudio" /></li>
-				<li><img src="img/麦克风.svg" width="20px" /></li>
-				<li><input type="button" value="取消" /></li>
+				<li class="noselect Micro"><img src="img/麦克风.svg" width="20px" /></li>
+				<li class="noselect"><input type="button" value="搜索" class="search" /></li>
 			</ul>
 		</div>
+		<progress max="100" value="100" id="pg"></progress>
 		<hr style="background-color: #F4F4F4; height: 1px; border: none;" />
-		<div id="nav">
+		<div id="nav" class="noselect">
 			<ul>
-				<li style="color: #272727; font-weight: 600; border-bottom: 2px solid #191919;">全部</li>
+				<li class="selected">全部</li>
 				<li>公众号</li>
 				<li>文章</li>
 				<li>小程序</li>
@@ -41,15 +43,17 @@
 			</ul>
 		</div>
 		<div id="info">
-			<p class="title"><span>MortarStudio</span> - 公众号</p>
+			<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
 			<div class="lidapao">
-				<div><img src="img/lidapao.jpg" width="50px"/></div>
+				<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
 				<div>
-					<p>李大炮工作室<span>已关注</span></p>
-					<p>这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
-					<p>微信号：<span>MortarStudio</span></p>
+					<p>李大炮工作室<span class="noselect">已关注</span></p>
+					<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+					<p><pao  class="noselect">微信号：</pao></pao><span>MortarStudio</span></p>
 				</div>
 			</div>
 		</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/home.js"></script>
 	</body>
 </html>
