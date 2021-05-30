@@ -8,12 +8,16 @@ ul,li,ol {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 body{
     background-color: #EDEDED;
     width: 330px;
-    height: 250px;
+    /* height: 250px; */
     position: relative;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 img {
@@ -24,6 +28,88 @@ img {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.mengban {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    z-index: 998;
+}
+
+.mengban .window {
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+    background-color: #fff;
+    position: absolute;
+    left: calc(330px/4);
+    top: 50px;
+    z-index: 999;
+}
+
+.mengban .window .head{
+    width: 80%; 
+    margin: 15px auto;
+    font-size: 18px;
+    /* border: 1px solid rebeccapurple; */
+}
+
+.mengban .window .head span {
+    display: inline-block;
+    position: relative;
+    top: -9px;
+    color: #E9535D;
+    /* 文字渐变 */
+    background-image: radial-gradient(circle, #4E509D, #E9535D);
+    -webkit-background-clip:text;
+    color: transparent;
+}
+
+.mengban .window .body {
+    width: 80%;
+    height: 50%;
+    margin: 15px auto 2px;
+    font-size: 12px;
+}
+
+.mengban .window .body span {
+    color: #4E509D;
+}
+
+.mengban .window .body p {
+    margin-bottom: 5px;
+}
+
+.mengban .window .body img {
+    position: relative;
+    top: -30px;
+    left: 88px;
+}
+
+.mengban .window .foot {
+    width: 80%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+/* 修改 placeholder 颜色 */
+.placeholder::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: red;
+    font-weight: bold;
+}
+.placeholder:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: red;
+}
+.placeholder::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: red;
+}
+.placeholder:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: red;
+}
+.placeholder::-ms-input-placeholder { /* Microsoft Edge */
+   color: red;
 }
 
 /* 禁止选中 */
@@ -211,57 +297,57 @@ progress#pg {
     cursor: pointer;
 }
 
-#info {
+#list .info {
     width: auto;
     height: 120px;
     background-color: #fff;
     padding: 10px;
 }
 
-#info p.title {
+#list .info p.title {
 
 }
 
-#info p.title span {
+#list .info p.title span {
     color: #10AE59;
     font-size: 14px;
 }
 
-#info p.title pao {
+#list .info p.title pao {
 	font-size: 15px;
 }
 
-#info div.lidapao {
+#list .info div.lidapao {
     border-top: 1px solid #F8F8F8;
     margin-top: 10px;
     padding-top: 5px;
 }
 
-#info div.lidapao div {
+#list .info div.lidapao div {
     float: left;
 }
 
-#info div.lidapao div:first-child {
+#list .info div.lidapao div:first-child {
     width: 18%;
     /* border: 1px solid red; */
 }
 
-#info div.lidapao div:first-child img {
+#list .info div.lidapao div:first-child img {
     border-radius: 50%;
 }
 
-#info div.lidapao div:last-child {
+#list .info div.lidapao div:last-child {
     width: 81%;
     /* border: 1px solid red; */
 }
 
-#info div.lidapao div:last-child p:nth-of-type(1) {
+#list .info div.lidapao div:last-child p:nth-of-type(1) {
     font-size: 14px;
     position: relative;
     letter-spacing: 0.8px;
 }
 
-#info div.lidapao div:last-child p:nth-of-type(1) span {
+#list .info div.lidapao div:last-child p:nth-of-type(1) span {
     position: absolute;
     right: 0px;
     width: 40px;
@@ -271,20 +357,60 @@ progress#pg {
     font-size: 8px;
 }
 
-#info div.lidapao div:last-child p:nth-of-type(2) {
+#list .info div.lidapao div:last-child p:nth-of-type(2) {
     font-size: 12px;
     color: #7F7F7F;
     margin-top: 5px;
     letter-spacing: 0.5px;
 }
 
-#info div.lidapao div:last-child p:nth-of-type(3) {
+#list .info div.lidapao div:last-child p:nth-of-type(3) {
     font-size: 12px;
     color: #B9B9B9;
     margin-top: 3px;
 }
-#info div.lidapao div:last-child p:nth-of-type(3) span {
+#list .info div.lidapao div:last-child p:nth-of-type(3) span {
     color: #10AE59;
+}
+
+#source {
+    width: auto;
+    height: 75px;
+    margin-top: 6px;  
+    padding: 10px;
+    background-color: #fff;
+}
+
+#source p {
+    letter-spacing: 0.8px; /*字间距*/
+    margin-bottom: 10px;
+    color: #0FADFE;
+}
+
+#source .github {
+    float: left;
+    width: 44%;
+    /* border: 1px solid rebeccapurple; */
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+
+#source .github img {
+    vertical-align: middle;
+}
+
+#source .gitee {
+    float: right;
+    width: 44%;
+    /* border: 1px solid rebeccapurple; */
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+
+#source .gitee img {
+    vertical-align: middle;
 }
 
 

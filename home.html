@@ -7,6 +7,30 @@
 	</head>
 	<!-- 禁止拖拽 -->
 	<body ondragstart="return false">
+		<!-- 弹窗提醒 -->
+		<div class="mengban" style="display: none;">
+			<div class="window">
+				<div class="head">
+					<img src="img/icon.png" width="30px" />
+					<span>skipschool</span>
+				</div>
+				<div class="body">
+					<p>
+						此刷课插件仅支持 <br />
+						<span>湖南文理学院</span><br />
+						(成人教育)课程刷课</p>
+
+					<p>
+						安装完成后即 <br />
+						自动开启！
+					</p>
+					<img src="img/开关 开.svg" width="30px" title="不可关闭" />
+				</div>
+				<div class="foot">
+					<img src="img/关  闭.svg" width="20px" />
+				</div>
+			</div>
+		</div>
 		<!-- 状态栏 -->
 		<div id="status" class="noselect">
 			<ul>
@@ -25,7 +49,7 @@
 			<ul>
 				<li class="noselect"><img src="img/ios-arrow-left.svg" width="22px" /></li>
 				<li class="noselect"><img src="img/烟花.svg" width="20px" /></li>
-				<li><input type="text" placeholder="MortarStudio" value="MortarStudio" /></li>
+				<li><input type="text" id="twinkle" placeholder="李大炮帅吗？" value="MortarStudio" /></li>
 				<li class="noselect Micro"><img src="img/麦克风.svg" width="20px" /></li>
 				<li class="noselect"><input type="button" value="搜索" class="search" /></li>
 			</ul>
@@ -34,26 +58,104 @@
 		<hr style="background-color: #F4F4F4; height: 1px; border: none;" />
 		<div id="nav" class="noselect">
 			<ul>
-				<li class="selected">全部</li>
-				<li>公众号</li>
-				<li>文章</li>
-				<li>小程序</li>
-				<li>视频号</li>
-				<li>联系作者</li>
+				<li class="selected" value="0">全部</li>
+				<li value="1">公众号</li>
+				<li value="2">文章</li>
+				<li value="3">小程序</li>
+				<li value="4">视频号</li>
+				<li value="5">联系作者</li>
 			</ul>
 		</div>
-		<div id="info">
-			<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
-			<div class="lidapao">
-				<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
-				<div>
-					<p>李大炮工作室<span class="noselect">已关注</span></p>
-					<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
-					<p><pao  class="noselect">微信号：</pao></pao><span>MortarStudio</span></p>
+		<div id = "list">
+			<div class="info" style="display: block;">
+				<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
+				<div class="lidapao">
+					<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
+					<div>
+						<p>李大炮工作室<span class="noselect">已关注</span></p>
+						<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+						<p><pao  class="noselect">微信号：</pao><span>MortarStudio</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="info" style="display: none;">
+				<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
+				<div class="lidapao">
+					<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
+					<div>
+						<p>李大炮工作室<span class="noselect">已关注</span></p>
+						<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+						<p><pao  class="noselect">微信号：</pao><span>MortarStudio</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="info" style="display: none;">
+				<p class="title"><span>李大炮工作室</span><pao class="noselect"> - 公众号</pao></p>
+				<div class="lidapao">
+					<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
+					<div>
+						<p>文章<span class="noselect">已关注</span></p>
+						<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+						<p><pao  class="noselect">微信号：</pao><span>MortarStudio</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="info" style="display: none;">
+				<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
+				<div class="lidapao">
+					<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
+					<div>
+						<p>小程序<span class="noselect">已关注</span></p>
+						<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+						<p><pao  class="noselect">微信号：</pao><span>MortarStudio</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="info" style="display: none;">
+				<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
+				<div class="lidapao">
+					<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
+					<div>
+						<p>视频号<span class="noselect">已关注</span></p>
+						<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+						<p><pao  class="noselect">微信号：</pao><span>MortarStudio</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="info" style="display: none;">
+				<p class="title"><span>MortarStudio</span><pao class="noselect"> - 公众号</pao></p>
+				<div class="lidapao">
+					<div class="noselect"><img src="img/lidapao.jpg" width="50px" title="李大炮" /></div>
+					<div>
+						<p>联系作者<span class="noselect">已关注</span></p>
+						<p class="noselect">这是李大炮工作室的唯一账号。李大炮，一个除了帅一无是处的美男子。</p>
+						<p><pao  class="noselect">微信号：</pao><span>MortarStudio</span></p>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div id="source">
+			<p>源码地址：</p>
+			<div class="github">
+				<img src="img/pinned-octocat.svg" width="40px" style="border-radius: 50%;" />
+				..
+				<a href="https://github.com/IDP554/skipschool" target="_blank">
+					<img src="img/链接.svg" width="30px" />
+				</a>
+				..
+				<img src="img/29688960.jpg" width="40px" style="border-radius: 50%;" />
+			</div>
+			<div class="gitee">
+				<img src="img/gitee.png" width="37px" style="border-radius: 50%;" />
+				..
+				<a href="https://gitee.com/big-gun/skipschool" target="_blank">
+					<img src="img/链接.svg" width="30px" />
+				</a>
+				..
+				<img src="img/1585842497.png" width="40px" style="border-radius: 50%;" />
+			</div>
+		</div>
 	<script src="js/jquery.js"></script>
-	<script src="js/home.js"></script>
+	<script type="text/javascript" src="js/home.js"></script>
 	</body>
 </html>
