@@ -63,7 +63,7 @@ img {
     color: #E9535D;
     /* 文字渐变 */
     background-image: radial-gradient(circle, #4E509D, #E9535D);
-    -webkit-background-clip:text;
+    -webkit-background-clip: text;
     color: transparent;
 }
 
@@ -308,9 +308,9 @@ progress#pg {
     padding: 10px;
 }
 
-#list .info p.title {
+/* #list .info p.title {
 
-}
+} */
 
 #list .info p.title span {
     color: #10AE59;
