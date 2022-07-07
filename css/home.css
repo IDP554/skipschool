@@ -40,7 +40,7 @@ img {
 
 .mengban .window {
     width: 150px;
-    height: 200px;
+    height: 240px;
     border-radius: 8px;
     background-color: #fff;
     position: absolute;
@@ -69,13 +69,17 @@ img {
 
 .mengban .window .body {
     width: 80%;
-    height: 50%;
-    margin: 15px auto 2px;
+    height: 59%;
+    margin: 10px auto 2px;
     font-size: 12px;
 }
 
 .mengban .window .body span {
     color: #4E509D;
+}
+
+.mengban .window .body red {
+    color: #dd5567;
 }
 
 .mengban .window .body p {

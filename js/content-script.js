@@ -2,6 +2,27 @@
 ready(function(){
 	// 获取当前页面网址
 	let selfurl = window.location.href;
+	// 分析进入的 URL
+	let analysis = /https:\/\/[\w.]+/
+	let urlHead = analysis.exec(selfurl)[0];
+	
+	console.log(urlHead);
+
+	switch(urlHead) {
+		case 'https://hnwledu.ls365.net':
+		case 'https://huse.ls365.net':
+			console.log("湖南文理刷课...");
+			hunan(selfurl, urlHead);
+			break;
+		case 'https://bx.bossyun.com':
+			console.log("博学...");
+			boxue(selfurl);
+			break;
+	}
+});
+
+// 湖南文理, 湖南科技 刷课逻辑
+function hunan(selfurl, urlHead) {
 	// 检测是否是刷课页面
 	let skipschool = /VideoCollectionID/
 	if (null == skipschool.exec(selfurl)) {
@@ -20,7 +41,7 @@ ready(function(){
 	var infos = [];
 	for (let v of videos) {
 		let href = $(v).children("a").attr("href");
-		let url = "https://hnwledu.ls365.net" + href.trim();
+		let url = urlHead + href.trim();
 		let id = wlan.exec(href)[1];
 		let obj = {
 			"name": $(v).children("p").eq(0).children("span").text(),
@@ -126,4 +147,53 @@ ready(function(){
 			}
 		}, 1000);
 	}
-});
+}
+
+// 博学BX
+function boxue(selfurl) {
+	// 进入页面
+	console.log("进入自动刷课程序！");
+	// 分析未完成课程
+	if (!selfurl.includes("bx/live")) {
+		let sub = $(".subcatalog-item");
+		let interval = setInterval(() => {
+			if(sub.length == 0){
+				sub = $(".subcatalog-item");
+			} else {
+				clearInterval(interval);
+				skip(sub);
+			}
+		}, 1000);	
+	} else {
+		setTimeout(() => {
+			let video = $("video")[0];
+			// 默认静音处理(谷歌66版本后想要视频自动播放需静音)
+			// 新版谷歌需要进入 网站设置 > 声音 > 改为允许
+			$(video).prop('muted', true);
+			$(video).trigger("play")
+			// 16 倍速
+			video.playbackRate = 16
+			setInterval(() => {
+				if(video.playbackRate < 16){
+					console.log("视频已加速至16倍速！");
+					video.playbackRate = 16
+				}
+			}, 1000);
+		}, 5000);	
+	}
+
+	// 间隔10秒打开新窗口
+	function skip(sub) {
+		let i = 500;
+		for (let v of sub) {
+			let success = v.children[2].children[0];
+			if(success.localName !== "img") {
+				// 打开页面
+				setTimeout(function(){
+					$(v).click();
+				}, i)
+				i += 10000;
+			}
+		}
+	}
+}

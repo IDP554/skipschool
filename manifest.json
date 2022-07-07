@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "自动刷课",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "由李大炮编写的自动刷课插件",
 	"icons":
 	{
@@ -18,7 +18,7 @@
 	"content_scripts": 
 	[
 		{
-			"matches": ["https://hnwledu.ls365.net/*"],
+			"matches": ["https://hnwledu.ls365.net/*", "https://huse.ls365.net/*", "https://bx.bossyun.com/*"],
 			"js": ["js/jquery.js", "js/init.js", "js/content-script.js"],
 			"run_at": "document_start"
 		}
