@@ -57,15 +57,15 @@ function hunan(selfurl, urlHead) {
 
 	if(infos.length == 0) {
 		console.log("此学科已学完！");
-		alert("此学科已学完！");
+		// alert("此学科已学完！");
 		return;
 	}
 
-	// 跳转到未刷完的课程页
-	let skip = infos[0]
-	if(courseID !== skip.id) {
-		self.location.href=skip.url
-	}
+	// 跳转到未刷完的课程页 ()
+	// let skip = infos[0]
+	// if(courseID !== skip.id) {
+	// 	self.location.href=skip.url
+	// }
 
 	// 赋值下一节课程对象
 	var nextobj;
@@ -82,9 +82,7 @@ function hunan(selfurl, urlHead) {
 		}
 	}, 1000);
 
-
-
-
+	// 自动刷课
 	var autoplay = function(){
 		console.log("开始刷课...");
 
@@ -113,7 +111,7 @@ function hunan(selfurl, urlHead) {
 		}, 1000);
 	}
 
-
+	// 倍速监听
 	var monitor = function() {
 		// 视频刷新重新赋值
 		let video = $("video")[0];
@@ -126,13 +124,14 @@ function hunan(selfurl, urlHead) {
 		// 循环监听
 		let handle = setInterval(() => {
 			if(video.paused && $("div#reader_msgbg").css("display")=="none") {
-				let stop = confirm("视频被检测到已暂停！是否恢复播放！");
-				if(!stop) {
-					clearInterval(handle);
-					alert("已关闭自动刷课，再次开启自动刷课需刷新页面。");
-				}else{
-					$(video).trigger("play")
-				}
+				console.log('视频被检测到已暂停！')
+				// let stop = confirm("视频被检测到已暂停！是否恢复播放！");
+				// if(!stop) {
+				// 	clearInterval(handle);
+				// 	alert("已关闭自动刷课，再次开启自动刷课需刷新页面。");
+				// }else{
+				// 	$(video).trigger("play")
+				// }
 			}else if($("div#reader_msgbg").css("display")=="block"){
 				// 此课程刷完，自动下一节
 				clearInterval(handle);
