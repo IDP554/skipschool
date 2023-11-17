@@ -1,43 +1,46 @@
 {
-	"manifest_version": 2,
 	"name": "自动刷课",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "由李大炮编写的自动刷课插件",
-	"icons":
-	{
-		"16": "img/icon.png",
-		"48": "img/icon.png",
-		"128": "img/icon.png"
-	},
-	"browser_action":
-	{
-		"default_icon": "img/icon.png",
-		"default_title": "李大炮祝您今天愉快^v^",
-		"default_popup": "home.html"
-	},
-	"content_scripts": 
-	[
-		{
-			"matches": ["https://hnwledu.ls365.net/*", "https://huse.ls365.net/*", "https://bx.bossyun.com/*"],
-			"js": ["js/jquery.js", "js/init.js", "js/content-script.js"],
-			"run_at": "document_start"
-		}
+	"manifest_version": 3,
+	"content_scripts": [
+	  {
+		"matches": [
+		  "https://hnwledu.ls365.net/*",
+		  "https://huse.ls365.net/*",
+		  "https://bx.bossyun.com/*"
+		],
+		"css": [],
+		"js": [
+		  "static/js/jquery.js",
+		  "static/js/init.js",
+		  "static/js/content-script.js"
+		],
+		"run_at": "document_start"
+	  }
 	],
-	"permissions":
-	[
-		"contextMenus",
-		"tabs",
-		"notifications",
-		"webRequest",
-		"webRequestBlocking",
-		"storage"
+	"permissions": [
+	  "contextMenus",
+	  "tabs",
+	  "notifications",
+	  "webRequest",
+	  "storage"
 	],
-	"homepage_url": "https://www.baidu.com",
-	"options_page": "options.html",
-	"options_ui":
-	{
-		"page": "options.html",
-		"chrome_style": true
+	"action": {
+	  "default_popup": "index.html",
+	  "default_icon": {
+		"16": "static/img/icon.png",
+		"32": "static/img/icon.png",
+		"48": "static/img/icon.png",
+		"128": "static/img/icon.png"
+	  },
+	  "default_title": "李大炮祝您今天愉快✿"
 	},
-	"omnibox": { "keyword" : "湖南文理" }
-}
+	"icons": {
+	  "16": "static/img/icon.png",
+	  "32": "static/img/icon.png",
+	  "48": "static/img/icon.png",
+	  "128": "static/img/icon.png"
+	}
+  }
+  
