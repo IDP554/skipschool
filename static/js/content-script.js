@@ -89,9 +89,13 @@ function hunan(selfurl, urlHead) {
 	}
 
 	// 赋值下一节课程对象
-	var nextobj;
+	var nextobj ;
 	if(infos.length !== index) {
 		nextobj = infos[index]
+	} else {
+		// 刷到最后一节课时，赋值第一节课程
+		// 便于从头开始重新遍历一下课程是否已刷完
+		nextobj = infos[0]
 	}
 
 	/** readyState 
@@ -170,9 +174,7 @@ function hunan(selfurl, urlHead) {
 			} else if($("div#reader_msgbg").css("display") == "block"){
 				// 此课程刷完，自动下一节
 				clearInterval(handle);
-				if(null !== nextobj) {
-					self.location.href = nextobj.url
-				}
+				self.location.href = nextobj.url
 			} else if(video.readyState == 4) {
 				// 当视频倍速低于10倍速进行恢复
 				if(video.playbackRate < 10){
